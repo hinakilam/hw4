@@ -1,5 +1,5 @@
 class PlacesController < ApplicationController
-
+  before_action :redirect_if_not_logged_in
   def index
     @places = Place.all
   end

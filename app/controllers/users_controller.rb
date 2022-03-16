@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params["user"])
     @user.save
-    redirect_to "/"
+    session[:user_id] = @user.id
+    redirect_to "/places"
   end
 end

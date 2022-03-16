@@ -14,7 +14,11 @@
     <%= form.date_field "posted_on" %>
   </p>
   <p>
-    <%= form.submit %>
+     <%= form.label "upload_image" %> 
+     <%= form.file_field "image"%>
+  </p>
+  <p>
+    <%= form.submit "Create Post" , class: "btn btn-primary" %>
   </p>
   <%= form.hidden_field "place_id" %>
 <% end %>

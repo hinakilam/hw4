@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :redirect_if_not_logged_in
 
   def new
     @post = Post.new
@@ -6,7 +7,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params["post"])
+    @post = @current_user.posts.new(params["post"])
     @post.save
     redirect_to "/places/#{@post.place.id}"
   end
